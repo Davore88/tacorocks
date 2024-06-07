@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Administrador de productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Administrador de productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+
+  <ion-item>
+    <ion-input type="text"label="Nombre" aria-placeholder="Ej: taco chuleta" #txtNombre [(ngModel)]="data.nombre" ></ion-input>
+  </ion-item>
+  <ion-item>  
+    <ion-input type="number" label="Precio" aria-placeholder="Ej: 12.00" #txtPrecio  [(ngModel)]="data.precio" ></ion-input>
+  </ion-item>
+
+  <ion-item>    
+    <ion-input type="number"label="Cantidad" aria-placeholder="Ej: 55030..." #txtCantidad  [(ngModel)]="data.cantidad"></ion-input>
+  </ion-item>
+  <ion-item>    
+    <ion-input type="text" label="id" aria-placeholder="Ej: 001tc..." #txtId  [(ngModel)]="data.id"></ion-input>
+  </ion-item>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button (click)="createProduct(txtNombre,txtPrecio,txtCantidad,txtId)">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    
+      <ion-button (click)="getProducts()">
+        <ion-icon slot="icon-only" name="list"></ion-icon>
+      </ion-button>
+    
+    </ion-toolbar>
+  </ion-footer>
+
+  <!--   
+  <div *ngIf="nombre">
+    <ion-text color ="secondary">
+      <h1 class="ion-text-center">Nombre</h1>
+      <h2 class ="ion-text-center">{{nombre}}</h2>
+    </ion-text>
+    <ion-text color ="secondary">
+      <h1 class="ion-text-center">Telefono</h1>
+      <h2 class ="ion-text-center">{{telefono}}</h2>
+      <ion-button (click)="deleteProduct(txtId)" fill="clear" class ="ion-text-center">
+        <ion-icon slot="icon-only" name="Trash"></ion-icon>
+      </ion-button>
+    </ion-text>
+  </div>
+  -->
+
+  <div *ngIf="listado.length > 0">
+    <h1 class="ion-text-center">Listado de Productos</h1>
+    <ion-list *ngFor="let item of listado">
+      
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title></ion-card-title>
+            <ion-card-subtitle>Nombre: {{item.nombre}}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Precio: {{item.precio}}
+          </ion-card-content>
+          <ion-card-content>
+            Cantidad: {{item.cantidad}}
+          </ion-card-content>
+          <ion-card-content>
+            Cantidad: {{item.id}}
+          </ion-card-content>
+          <ion-button (click)="getOneProduct(item)" color="success">Editar
+            
+          </ion-button>
+          <ion-button  (click)="deleteProduct(item)" color="danger">Eliminar
+
+          </ion-button>
+        </ion-card> 
+    </ion-list>   
+  </div>
+
+ 
+</ion-content>
