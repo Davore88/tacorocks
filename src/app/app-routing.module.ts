@@ -13,12 +13,12 @@ const routes: Routes = [
   {
     path: 'producto',
     loadChildren: () => import('./producto/producto.module').then( m => m.ProductoPageModule),
-    
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'ordenes',
     loadChildren: () => import('./ordenes/ordenes.module').then( m => m.OrdenesPageModule),
-    
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'login',
@@ -34,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'menu',
