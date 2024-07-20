@@ -1,37 +1,44 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
+    <ion-title>Inicio de Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
+      <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+      <ion-img src="https://pin.it/65pUuysUi" class="logo-img"></ion-img> <!-- Asegúrate de actualizar el src con la ruta correcta a tu logo -->
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="formularioLogin">
-        <ion-item>
+        <ion-item lines="full">
           <ion-label position="floating">Nombre</ion-label>
-          <ion-input formControlName="nombre"></ion-input>
+          <ion-input formControlName="nombre" clearInput></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item lines="full">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input formControlName="password" type="password"></ion-input>
+          <ion-input formControlName="password" type="password" clearInput></ion-input>
         </ion-item>
+        <ion-button expand="block" (click)="ingresar()" class="ion-margin-top">
+          Ingresar
+        </ion-button>
       </form>
-      <br>
-      <ion-button (click)="ingresar()">
-        Ingresar
-      </ion-button>
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="auto">
+          <ion-button fill="clear" color="medium" [routerLink]="['/registro']">
+            ¿No tienes cuenta? Regístrate
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
-    </ion-buttons>
+    <ion-title size="small" class="ion-text-center">TACOROCKS</ion-title>
   </ion-toolbar>
 </ion-footer>
+
+
