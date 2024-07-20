@@ -1,6 +1,44 @@
 .logo-img {
     display: block;
     margin: 20px auto;
-    width: 100px; /* Ajusta el tamaño según tus necesidades */
+    width: 200px; /* Ajusta el tamaño según tus necesidades */
     height: auto;
   }
+
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toolbar-icon {
+    font-size: 24px; /* Ajusta el tamaño del icono */
+    margin-right: 8px; /* Espacio entre el icono y el título */
+  }
+  
+  .toolbar-title {
+    font-size: 24px; /* Asegúrate de que el tamaño del título coincida con el icono */
+  }
+
+  .login-card {
+    max-width: 400px; /* Establece un ancho máximo para el ion-card */
+    margin: auto; /* Centra el ion-card horizontalmente */
+  }
+  
+  .logo-img {
+    display: block;
+    margin: 0 auto 20px; /* Centra la imagen y agrega margen inferior */
+    max-width: 200px; /* Establece un ancho máximo para la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
+  @media (max-width: 480px) {
+    .login-card {
+      padding: 1rem; /* Ajusta el padding para pantallas pequeñas */
+    }
+  
+    .logo-img {
+      max-width: 200px; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
+    }
+  }
+  
+  
