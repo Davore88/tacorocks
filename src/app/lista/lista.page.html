@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-button expand="full" fill="solid" color="secondary" [routerLink]="['/registro']" class="ion-margin-bottom">
+    <ion-icon name="person-add-outline" slot="start"></ion-icon>
+    Agregar Usuario
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios" lines="inset">
+      <ion-avatar slot="start" class="avatar-size">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2 class="username">{{ usuario.nombre }}</h2>
+        <p>{{ usuario.password }}</p>
+        <p class="user-type">{{ usuario.tipoUsuario }}</p>
+      </ion-label>
+      <ion-buttons slot="end" class="buttons-size">
+        <ion-button fill="outline" (click)="editarUsuario(usuario.id)">
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          Editar
+        </ion-button>
+        <ion-button color="danger" fill="outline" (click)="eliminarUsuario(usuario.id)">
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          Eliminar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" fill="solid" color="medium" [routerLink]="['/menu/inicio']" class="ion-margin-top">
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    Regresar
+  </ion-button>
+</ion-content>
+
+
+

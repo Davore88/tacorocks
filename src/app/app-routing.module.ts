@@ -13,35 +13,44 @@ const routes: Routes = [
   {
     path: 'producto',
     loadChildren: () => import('./producto/producto.module').then( m => m.ProductoPageModule),
-    canActivate: [IngresadoGuard]
+    
   },
   {
     path: 'ordenes',
     loadChildren: () => import('./ordenes/ordenes.module').then( m => m.OrdenesPageModule),
-    canActivate: [IngresadoGuard]
+    
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate: [NoIngresadoGuard]
+    
 
   },
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
-    canActivate: [NoIngresadoGuard]
+    
 
+  },
+  {
+    path: 'registro/:id',
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
   },
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
-    canActivate: [IngresadoGuard]
+    
   },
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
-    canActivate: [NoIngresadoGuard]
+    
   },
+  {
+    path: 'lista',
+    loadChildren: () => import('./lista/lista.module').then( m => m.ListaPageModule)
+  },
+
 
 
   

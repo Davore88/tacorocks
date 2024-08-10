@@ -14,15 +14,17 @@ export class MenuPage implements OnInit {
     {
       titulo: 'Inicio',
       url: '/menu/inicio',
+      
       icono: 'home'
     },
+    
     {
-      titulo: 'ordenes',
+      titulo: 'Ordenes',
       url: '/menu/ordenes',
       icono: 'book'
     },
     {
-      titulo: 'producto',
+      titulo: 'Producto',
       url: '/menu/producto',
       icono: 'book'
     }
@@ -62,3 +64,7 @@ export class MenuPage implements OnInit {
   }
 
 }
+
+
+
+

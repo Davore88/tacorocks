@@ -1,13 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>inicio</ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
+      <ion-title size="large">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="wrapper">
+    <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+    <ion-img src="assets/icon/IMG_20240720_084746.jpg" class="logo-img"></ion-img>
+
+    <div class="ion-activatable ripple-parent rectangle">
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="auto">
+          <ion-button fill="solid" color="primary" [routerLink]="['/lista']" class="colorful-button">
+            lista de usuarios
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+  </div>
 </ion-content>
+
+<style>
+  .colorful-button {
+    --background: linear-gradient(45deg, #ff6f61, #ff7f50, #ff8c00);
+    --color: #fff;
+    --border-radius: 12px;
+    --padding: 12px 24px;
+  }
+  .wrapper {
+    text-align: center;
+  }
+  .logo-img {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+  }
+</style>
+
