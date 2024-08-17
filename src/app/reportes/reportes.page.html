@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calendario de reportes de Ventas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Fecha de Inicio</ion-label>
+    <ion-datetime 
+      display-format="DD/MM/YYYY" 
+      [(ngModel)]="startDate"
+      placeholder="Seleccione la fecha de inicio">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Fecha Final</ion-label>
+    <ion-datetime 
+      display-format="DD/MM/YYYY" 
+      [(ngModel)]="endDate"
+      placeholder="Seleccione la fecha final">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-button expand="full" (click)="generateReport()">Generar Reporte</ion-button>
+
+  <ion-list *ngIf="filteredSales.length > 0">
+    <ion-item *ngFor="let sale of filteredSales">
+      <ion-label>
+        <h2>{{ sale.date | date }}</h2>
+        <p>Ventas: {{ sale.sales }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="filteredSales.length === 0 && reportGenerated">
+    <p>No se encontraron ventas en el rango de fechas seleccionado.</p>
+  </ion-text>
+</ion-content>
+
+
+
+

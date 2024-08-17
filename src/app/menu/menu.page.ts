@@ -22,7 +22,15 @@ export class MenuPage implements OnInit {
       titulo: 'Ordenes',
       url: '/menu/ordenes',
       icono: 'book'
+
     },
+    
+    {
+      titulo: 'Reportes',
+      url: '/menu/reportes',
+      icono: 'book'  
+    },
+
     {
       titulo: 'Producto',
       url: '/menu/producto',
