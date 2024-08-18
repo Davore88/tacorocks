@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'ordenes',
     loadChildren: () => import('./ordenes/ordenes.module').then( m => m.OrdenesPageModule),
-    
+   
   },
   {
     path: 'login',
@@ -34,21 +34,25 @@ const routes: Routes = [
   },
   {
     path: 'registro/:id',
-    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
+     
   },
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+   
     
   },
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
     
+    
   },
   {
     path: 'lista',
-    loadChildren: () => import('./lista/lista.module').then( m => m.ListaPageModule)
+    loadChildren: () => import('./lista/lista.module').then( m => m.ListaPageModule),
+     
   },
 
 
