@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { ordenI } from '../models/orden';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +33,11 @@ export class FirebaseService {
   deleteDoc(path:string,id:string){
     return this.fireStore.collection(path).doc(id).delete();
   }
-
-  
-
-
+  getSalesByDateRange(startDate: string, endDate: string): Observable<ordenI[]> {
+    const dateStart = new Date(startDate);
+    const dateEnd = new Date(endDate)
+    return this.fireStore.collection<ordenI>('Ordenes', ref =>
+      ref.where('fecha', '>=', dateStart).where('fecha', '<=', dateEnd)
+    ).valueChanges();
+  }
 }
