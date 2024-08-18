@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { productoI } from '../models/producto';
+import { UtileriaService } from '../services/utileria.service';
+import { ordenI } from '../models/orden';
+
 
 @Component({
   selector: 'app-ordenes',
@@ -14,9 +17,14 @@ export class OrdenesPage implements OnInit {
   listado: any = [];
   orderedProducts: any[] = [];
   selectedProduct: any;
+  data : ordenI ={
+    fecha:null,
+   total:null,
+   listaProductos:null,
+   id:""
+}
 
-
-  constructor(private firestore:FirebaseService) { }
+  constructor(private firestore:FirebaseService,private util:UtileriaService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -31,6 +39,12 @@ export class OrdenesPage implements OnInit {
   }
   calculateTotal(): void {
     this.total = this.inputs.reduce((acc, val) => acc + val, 0);
+    this.data.total = this.orderedProducts.reduce((acc, val) => acc + val.precio, 0);
+    this.data.fecha = new Date();
+    this.data.listaProductos = this.orderedProducts;
+    this.data.id = this.generateRandomId();
+    this.createOrden(this.data);
+
   }
 
   getProducts(){
@@ -40,8 +54,26 @@ export class OrdenesPage implements OnInit {
  }
 
  addProduct() {
+    this.orderedProducts.push(this.selectedProduct);      
+}
 
-    this.orderedProducts.push(this.selectedProduct);
-  
+createOrden( data: any){
+  this.util.showLoading("Guardando Orden")
+ 
+  const path= 'Ordenes';
+  this.firestore.createDocument(data,path,this.generateRandomId()).then(
+    ()=>{
+      this.util.closeLoading();
+      this.util.presentToast("Guardado con exito");
+
+  })
+}
+
+generateRandomId(): string {
+  return Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+}
+
+removeItem(index: number) {
+  this.orderedProducts.splice(index, 1);
 }
 }
