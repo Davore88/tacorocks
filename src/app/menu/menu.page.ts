@@ -26,7 +26,7 @@ export class MenuPage implements OnInit {
     {
       titulo: 'Producto',
       url: '/menu/producto',
-      icono: 'book'
+      icono: 'fast-food'
     }
   ]
 
