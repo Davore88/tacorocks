@@ -30,4 +30,8 @@ export class FirebaseService {
   deleteDoc(path:string,id:string){
     return this.fireStore.collection(path).doc(id).delete();
   }
+
+  
+
+
 }
